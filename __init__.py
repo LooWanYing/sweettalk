@@ -7,6 +7,7 @@ app = Flask(__name__)
 def home():
     login_customer_form = LoginCustomerForm(request.form)
     if request.method == 'POST' and login_customer_form.validate():
+<<<<<<< Updated upstream
         # db = shelve.open('customer.db', 'c')
         # for i in db:
         #     if db[i].get('username')==login_customer_form.username.data:
@@ -40,6 +41,15 @@ def home():
             #             return redirect(url_for("welcome"))
             #             end
             return redirect(url_for("home"))
+=======
+        customers_dict = {}
+        db = shelve.open('customer.db', 'c')
+        if key in shelve.open('customer.db', 'c')==username:
+                try:
+                    customers_dict = db['Customers']
+                except:
+                    print("Error in retrieving Customers from customer.db.")
+>>>>>>> Stashed changes
 
         # UP_dict = {}
         # UP = shelve.open('up.db', 'c')
